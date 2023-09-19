@@ -53,5 +53,5 @@ brew install flake8
 # Remove outdated versions from the cellar
 brew cleanup
 
-SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+SCRIPT_DIR="$(dirname -- "$(readlink -f -- "$0")")"
 cat SCRIPT_DIR/aliases.txt | tee -a ~/.zshrc
