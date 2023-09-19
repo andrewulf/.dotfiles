@@ -19,6 +19,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-interactive-cd)
+
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -79,7 +80,7 @@ bindkey "^[[Z" autosuggest-accept
 if [[ $OSTYPE == 'darwin'* ]]; then
     echo 'macOS detected, using brew for zsh'
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+    source ~/Repos/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
 
 

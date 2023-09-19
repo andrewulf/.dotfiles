@@ -48,6 +48,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
+# zsh plugins
+brew install zsh-autosuggestions
+cd ~ && mkdir Repos
+cd ~/Repos
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
+
 # language servers
 brew install cppcheck
 brew install clangd

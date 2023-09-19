@@ -18,6 +18,7 @@ apt-get install -y xsel
 apt-get install tmux
 apt-get install curl
 apt-get install stow
+apt-get install zsh
 
 #hit prefix+I to install TMUX plugins after setup
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
@@ -55,5 +56,12 @@ sudo apt-get clean
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+
+# zsh plugins
+cd ~ && mkdir Repos
+cd ~/Repos
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 
