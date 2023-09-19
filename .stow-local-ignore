@@ -1,0 +1,7 @@
+\.git
+misc
+LICENSE
+^/.*\.org
+README.md
+install.sh
+setup.sh
