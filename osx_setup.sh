@@ -43,6 +43,11 @@ brew install awscli
 brew install gh
 brew install openssl
 
+# Oh My Zsh + Powerlevel10k
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
 # language servers
 brew install cppcheck
 brew install clangd
