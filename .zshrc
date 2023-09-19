@@ -15,12 +15,15 @@ export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-interactive-cd)
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 export PATH=/opt/homebrew/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
@@ -50,12 +53,12 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias src="source ~/.zshrc"
 alias code="cd ~/Projects"
 alias dl="cd ~/Downloads"
-alias dots="cd ~/dotfiles"
+alias dots="cd ~/.dotfiles"
 alias nv="nvim"
-alias she="vi ~/dotfiles/zsh/.zshrc"
-alias kit="vi ~/dotfiles/kitty.conf"
-alias nvi="vi ~/dotfiles/nvim"
-alias tmu="vi ~/dotfiles/.tmux.conf"
+alias she="nvim ~/.dotfiles/.zshrc"
+alias kit="nvim ~/.dotfiles/.config/kitty/"
+alias nvi="nvim ~/.dotfiles/.config/nvim/"
+alias tmu="nvim ~/.dotfiles/.tmux.conf"
 alias x="exit"
 alias gco="git checkout"
 alias gc="git commit"
@@ -70,11 +73,14 @@ echo "[+] .zshrc configuration loaded [+]"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#141414,bg=#3DED97,bold,underline"
 bindkey "^[[Z" autosuggest-accept
-plugins=(zsh-autosuggestions, zsh-interactive-cd)
-source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+    echo 'macOS detected, using brew for zsh'
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+fi
 
 
 # source powerlevel10k
