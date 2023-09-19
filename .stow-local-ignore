@@ -7,3 +7,4 @@ osx_setup.sh
 linux_setup.sh
 sync.sh
 aliases.txt
+.DS_Store
