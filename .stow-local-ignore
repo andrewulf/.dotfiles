@@ -3,5 +3,7 @@ misc
 LICENSE
 ^/.*\.org
 README.md
-install.sh
-setup.sh
+osx_setup.sh
+linux_setup.sh
+sync.sh
+aliases.txt
