@@ -1,14 +1,13 @@
 return {
-    "tiagovla/tokyodark.nvim",
-    name = 'tokyodark',
+    "EdenEast/nightfox.nvim",
     priority = 1000,
     config = function()
-        require("tokyodark").setup({
-            transparent_background = true, -- set background to transparent
-            gamma = 1.00,                  -- adjust the brightness of the theme
-            terminal_colors = true,        -- enable terminal colors
+        require('nightfox').setup({
+            options = {
+                transparent = true,
+            }
         })
-        vim.cmd("colorscheme tokyodark")
+        vim.cmd("colorscheme nightfox")
 
         vim.cmd([[ highlight TelescopeBorder guibg=none ]])
         vim.cmd([[ highlight TelescopeTitle guibg=none ]])

@@ -1,5 +1,11 @@
 telesconfig = function()
-    require("telescope").setup {}
+    require("telescope").setup {
+        pickers = {
+            find_files = {
+                hidden = true
+            }
+        }
+    }
 end
 return {
     'nvim-telescope/telescope.nvim',

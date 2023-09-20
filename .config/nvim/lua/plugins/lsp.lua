@@ -2,8 +2,13 @@ local lspcfg = function()
     local mason_lspconfig = require('mason-lspconfig')
     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    local on_attach = function(_, bufnr) end
+    local on_attach = function(_, bufnr)
+        if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint(bufnr, true)
+        end
+    end
     require("mason").setup()
+
 
     -- Setup neovim lua configuration with neodev
     require('neodev').setup()
@@ -43,6 +48,9 @@ local lspcfg = function()
                         indent_size = "2",
                     }
                 },
+                diagnostics = {
+                    globals = { 'vim' }
+                }
             }
         },
     }

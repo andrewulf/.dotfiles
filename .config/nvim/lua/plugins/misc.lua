@@ -1,6 +1,7 @@
 -- Various small plugins that dont have a huge impact but improves my personal DX.
 return {
     "tpope/vim-surround",
+    { "folke/neodev.nvim", config = function() require('neodev').setup() end },
     {
         "numToStr/Comment.nvim",
         opts = {},

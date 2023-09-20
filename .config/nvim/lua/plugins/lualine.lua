@@ -1,3 +1,46 @@
+local mode_map = {
+    ["n"] = "NOR",
+    ["no"] = "O·P",
+    ["nov"] = "O·P",
+    ["noV"] = "O·P",
+    ["no\22"] = "O·P",
+    ["niI"] = "N·I",
+    ["niR"] = "N·R",
+    ["niV"] = "N",
+    ["nt"] = "N·T",
+    ["v"] = "VIS",
+    ["vs"] = "V",
+    ["V"] = "VIS·L",
+    ["Vs"] = "VIS·L",
+    ["\22"] = "VIS·B",
+    ["\22s"] = "VIS·B",
+    ["s"] = "S",
+    ["S"] = "S·L",
+    ["\19"] = "S·B",
+    ["i"] = "INS",
+    ["ic"] = "I·C",
+    ["ix"] = "I·X",
+    ["R"] = "R",
+    ["Rc"] = "R·C",
+    ["Rx"] = "R·X",
+    ["Rv"] = "V·R",
+    ["Rvc"] = "RVC",
+    ["Rvx"] = "RVX",
+    ["c"] = "C",
+    ["cv"] = "EX",
+    ["ce"] = "EX",
+    ["r"] = "R",
+    ["rm"] = "M",
+    ["r?"] = "C",
+    ["!"] = "SH",
+    ["t"] = "T",
+}
+
+local function modes()
+    return mode_map[vim.api.nvim_get_mode().mode] or "__"
+end
+
+
 local colors = {
     blue     = '#009CFF',
     yellow   = '#F5DF4E',
@@ -17,11 +60,9 @@ local custom_theme = {
         b = { fg = colors.white, bg = nil },
         c = { fg = colors.black, bg = nil },
     },
-
     insert = { a = { fg = colors.black, bg = colors.blue } },
     visual = { a = { fg = colors.black, bg = colors.yellow } },
     replace = { a = { fg = colors.black, bg = colors.red } },
-
     inactive = {
         a = { fg = colors.white, bg = colors.black },
         b = { fg = colors.white, bg = colors.black },
@@ -55,7 +96,7 @@ return {
             },
             sections = {
                 lualine_a = {
-                    { "mode", color = { gui = "bold" }, separator = { right = "" }, right_padding = 2 },
+                    { modes, color = { gui = "bold" }, separator = { right = "" }, right_padding = 2 },
                 },
                 lualine_b = {
                     {
