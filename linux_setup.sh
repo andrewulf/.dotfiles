@@ -66,5 +66,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 # tmuxifier (config files are stored in ~/.tmuxifier/layouts
-cd ~/Repos
-git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+git clone https://github.com/jimeh/tmuxifier.git ~/Repos/.tmuxifier
