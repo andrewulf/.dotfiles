@@ -26,6 +26,7 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+eval "$(zoxide init zsh)"
 
 ##########################################
 ### +++++++ ADD COSTUMS BELOW ++++++++ ###
@@ -41,14 +42,20 @@ export PATH=$PATH:/usr/bin/python3
 export PATH=$PATH:$HOME/Library/Python/3.8/lib/python/site-packages/
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+# TMUXIFIER
+export EDITOR="nvim"
+export PATH="$HOME/Repos/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
+alias tm="tmuxifier"
+
 #####################################
-### ----> DIRECTORY ALIASES <---- ###
+### ----> DIRECTORY & GIT ALIASES <---- ###
 #####################################
 
 alias src="source ~/.zshrc"
 alias code="cd ~/Projects"
 alias dl="cd ~/Downloads"
-alias dots="cd ~/.dotfiles"
+alias dot="cd ~/.dotfiles"
 alias nv="nvim"
 alias she="nvim ~/.dotfiles/.zshrc"
 alias kit="nvim ~/.dotfiles/.config/kitty/"
@@ -61,7 +68,11 @@ alias ga="git add"
 alias gp="git push"
 alias gs="git status"
 
-echo "[+] .zshrc configuration loaded [+]"
+# Add plugins wisely, as too many plugins slow down shell startup.
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-interactive-cd)
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -71,20 +82,15 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#141414,bg=#3DED97,bold,underline"
 bindkey "^[[Z" autosuggest-accept
 
+### Check if on my macbook when using autosuggestions (this isnt needed on linux)
 if [[ $OSTYPE == 'darwin'* ]]; then
     echo 'macOS detected, using brew for zsh'
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source ~/Repos/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
 
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-    zsh-autosuggestions
-    zsh-interactive-cd)
-
-
-
 # source powerlevel10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+echo "[+] .zshrc configuration loaded [+]"

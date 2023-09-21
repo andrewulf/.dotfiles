@@ -53,6 +53,7 @@ brew install zsh-autosuggestions
 cd ~ && mkdir Repos
 cd ~/Repos
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
+brew install zoxide
 
 # language servers
 brew install cppcheck
@@ -66,3 +67,8 @@ brew cleanup
 
 SCRIPT_DIR="$(dirname -- "$(readlink -f -- "$0")")"
 cat SCRIPT_DIR/aliases.txt | tee -a ~/.zshrc
+
+# tmuxifier (config files are stored in ~/.tmuxifier/layouts
+cd ~/Repos
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+

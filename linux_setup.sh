@@ -63,5 +63,8 @@ cd ~ && mkdir Repos
 cd ~/Repos
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
-
+# tmuxifier (config files are stored in ~/.tmuxifier/layouts
+cd ~/Repos
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier

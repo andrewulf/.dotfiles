@@ -2,14 +2,14 @@ local lspcfg = function()
     local mason_lspconfig = require('mason-lspconfig')
     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
         if client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint(bufnr, true)
+            vim.g.inlay_hints_visible = true
         end
     end
+
     require("mason").setup()
-
-
     -- Setup neovim lua configuration with neodev
     require('neodev').setup()
 
@@ -32,17 +32,50 @@ local lspcfg = function()
                         vendor = true,
                     },
                     usePlaceholders = true,
+                    hints = {
+                        assignVariableTypes = true,
+                        compositeLiteralFields = true,
+                        constantValues = true,
+                        functionTypeParameters = true,
+                        parameterNames = true,
+                        rangeVariableTypes = true
+                    }
                 },
             },
         },
-        tsserver = {},
+        tsserver = {
+            settings = {
+                typescript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    }
+                },
+                javascript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    }
+                }
+            }
+        },
         html = { filetypes = { 'html', 'twig', 'hbs' } },
         lua_ls = {
             Lua = {
                 format = {
                     enable = true,
-                    -- Put format options here
-                    -- NOTE: the value should be STRING!!
                     defaultConfig = {
                         indent_style = "space",
                         indent_size = "2",
@@ -50,15 +83,41 @@ local lspcfg = function()
                 },
                 diagnostics = {
                     globals = { 'vim' }
+                },
+                hint = {
+                    enable = true
                 }
             }
         },
+        cssls = {
+            settings = {
+                css = {
+                    validate = true,
+                    lint = {
+                        unknownAtRules = "ignore",
+                    },
+                },
+                scss = {
+                    validate = true,
+                    lint = {
+                        unknownAtRules = "ignore",
+                    },
+                },
+                less = {
+                    validate = true,
+                    lint = {
+                        unknownAtRules = "ignore",
+                    },
+                },
+            },
+        }
     }
 
     require('lspconfig').clangd.setup {
         cmd = { "clangd" },
         filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'proto', 'cuda' },
     }
+
 
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
