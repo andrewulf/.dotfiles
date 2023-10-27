@@ -67,6 +67,7 @@ alias gc="git commit"
 alias ga="git add"
 alias gp="git push"
 alias gs="git status"
+alias orar="node ~/Projects/orar/src/app.js"
 
 # Add plugins wisely, as too many plugins slow down shell startup.
 plugins=(
@@ -94,3 +95,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 echo "[+] .zshrc configuration loaded [+]"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

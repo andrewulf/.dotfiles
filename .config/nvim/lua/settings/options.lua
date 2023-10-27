@@ -10,9 +10,9 @@ set.fileencoding = "utf-8"
 set.autoread = true
 set.backupcopy = "yes"
 set.expandtab = true
-set.shiftwidth = 4
-set.softtabstop = 4
-set.tabstop = 4
+set.shiftwidth = 2
+set.softtabstop = 2
+set.tabstop = 2
 set.updatetime = 50
 set.exrc = true
 set.relativenumber = true
@@ -27,13 +27,13 @@ set.scrolloff = 8
 set.errorbells = false
 set.ruler = true
 set.clipboard = "unnamedplus"
-set.breakindent = true         -- keep indentation when lines break
+set.breakindent = true -- keep indentation when lines break
 set.breakindentopt = "shift:2" -- but shift it by 2 spaces
-set.linebreak = true           -- break only at specific characters, :h breakat
+set.linebreak = true -- break only at specific characters, :h breakat
 set.completeopt = {
-    "menuone",
-    "noinsert",
-    "noselect",
+	"menuone",
+	"noinsert",
+	"noselect",
 }
 set.autoindent = true
 set.smartindent = true
@@ -49,12 +49,12 @@ set.cmdheight = 0
 vim.opt.scroll = 14
 vim.opt.laststatus = 3
 vim.opt.listchars = {
-    eol = "↴",
-    extends = "›",
-    precedes = "‹",
-    nbsp = "␣",
-    trail = "·",
-    tab = "> ",
+	eol = "↴",
+	extends = "›",
+	precedes = "‹",
+	nbsp = "␣",
+	trail = "·",
+	tab = "> ",
 }
 vim.opt.list = true
 
@@ -66,7 +66,7 @@ vim.cmd([[hi Visual guifg=#101010 guibg=#F6AC1F gui=none]])
 vim.g["python3_host_prog"] = "/usr/bin/python3"
 
 set.guicursor =
-"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
