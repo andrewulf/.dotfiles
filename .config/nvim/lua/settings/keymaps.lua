@@ -93,6 +93,7 @@ vim.keymap.set("t", "<C-g>o", "<C-\\><C-n>:FloatermToggle<CR>", opts)
 
 -- nvim-dap
 vim.keymap.set("n", "<leader>dct", '<cmd>lua require"dap".continue()<CR>', opts)
+vim.keymap.set("n", "<leader>dst", '<cmd>lua require"dap".terminate()<CR>', opts)
 vim.keymap.set("n", "<leader>dsv", '<cmd>lua require"dap".step_over()<CR>', opts)
 vim.keymap.set("n", "<leader>dsi", '<cmd>lua require"dap".step_into()<CR>', opts)
 vim.keymap.set("n", "<leader>dso", '<cmd>lua require"dap".step_out()<CR>', opts)

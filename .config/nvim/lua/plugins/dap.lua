@@ -3,6 +3,16 @@ return {
   dependencies = {
     -- UI for the debugger
     {
+      "leoluz/nvim-dap-go",
+      config = function()
+        require('dap-go').setup()
+      end,
+    },
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      opts = {},
+    },
+    {
       "rcarriga/nvim-dap-ui",
       -- stylua: ignore
       keys = {
@@ -30,37 +40,26 @@ return {
   },
   config = function()
     local dap = require("dap")
+    require("nvim-dap-virtual-text").setup()
     dap.set_log_level("TRACE")
 
-    dap.adapters.cppdbg = {
-      id = "cppdbg",
-      type = "executable",
-      command = "/Users/prozod/cpptools-osx-arm64/extension/debugAdapters/bin/OpenDebugAD7",
+    dap.adapters.lldb = {
+      type = 'executable',
+      command = '/opt/homebrew/opt/llvm/bin/lldb-vscode', -- adjust as needed, must be absolute path
+      name = 'lldb'
     }
 
     dap.configurations.cpp = {
       {
-        name = "Launch file",
-        type = "cppdbg",
-        request = "launch",
+        name = 'Launch',
+        type = 'lldb',
+        request = 'launch',
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/")
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = "${workspaceFolder}",
-        stopAtEntry = true,
-        miDebuggerPath = "/Users/prozod/cpptools-osx-arm64/extension/debugAdapters/bin/OpenDebugAD7",
-      },
-      {
-        name = "Attach to gdbserver :1234",
-        type = "cppdbg",
-        request = "launch",
-        MIMode = "lldb",
-        miDebuggerServerAddress = "localhost:1234",
-        miDebuggerPath = "/usr/bin/lldb",
-        cwd = "${workspaceFolder}",
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/")
-        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
       },
     }
 
