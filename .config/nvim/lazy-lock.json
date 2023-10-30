@@ -7,6 +7,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
+  "copilot.vim": { "branch": "release", "commit": "f6d1124a12ca76731313eb0e7ec9562ee6f12e73" },
   "gitsigns.nvim": { "branch": "main", "commit": "af0f583cd35286dd6f0e3ed52622728703237e50" },
   "go.nvim": { "branch": "master", "commit": "5e9e083f4927402eab6ab233e970b397daa2e826" },
   "guihua.lua": { "branch": "master", "commit": "5ad8dba19ce9b9fd8965598984dfdc9c119f97e4" },

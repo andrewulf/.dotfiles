@@ -15,9 +15,10 @@ local lspcfg = function()
 
   local servers = {
     asm_lsp = {},
+    angularls = {},
     eslint = {
       file_types = {
-        "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue",
+        "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "vue",
         "svelte", "astro"
       },
       settings = {
