@@ -15,6 +15,7 @@ local lspcfg = function()
 
   local servers = {
     asm_lsp = {},
+    java_language_server = {},
     angularls = {},
     eslint = {
       file_types = {

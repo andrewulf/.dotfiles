@@ -96,3 +96,12 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 echo "[+] .zshrc configuration loaded [+]"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Maven
+export M2_HOME="/Users/prozod/apache-maven-3.9.5"
+PATH="${M2_HOME}/bin:${PATH}"
+export PATH

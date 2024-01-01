@@ -1,5 +1,6 @@
 -- Various small plugins that dont have a huge impact but improves my personal DX.
 return {
+  { "windwp/nvim-ts-autotag" },
   {
     'github/copilot.vim',
     init = function()
@@ -23,7 +24,7 @@ return {
       require("nvim-surround").setup({})
     end
   },
-  { "folke/neodev.nvim", config = function() require('neodev').setup() end },
+  { "folke/neodev.nvim",     config = function() require('neodev').setup() end },
   {
     "numToStr/Comment.nvim",
     opts = {},
