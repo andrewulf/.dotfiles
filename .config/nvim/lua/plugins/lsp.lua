@@ -17,6 +17,9 @@ local lspcfg = function()
     asm_lsp = {},
     java_language_server = {},
     angularls = {},
+    vimtex = {},
+    ocamllsp = {},
+    python = {},
     eslint = {
       file_types = {
         "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "vue",
@@ -133,6 +136,12 @@ local lspcfg = function()
       }
     },
     cssls = {
+      cmd = { "vscode-css-language-server", "--stdio" },
+      root_dir = require('lspconfig/util').root_pattern("package.json", ".git"),
+      init_options = {
+        provideFormatter = true,
+      },
+      filetypes = { "css", "scss", "less" },
       settings = {
         css = {
           validate = true,

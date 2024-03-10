@@ -58,8 +58,8 @@ local colors = {
 local custom_theme = {
   normal = {
     a = { fg = colors.black, bg = colors.green },
-    b = { fg = colors.white, bg = colors.bg },
-    c = { fg = colors.black, bg = colors.bg },
+    b = { fg = colors.white, bg = nil },
+    c = { fg = colors.black, bg = nil },
   },
   insert = { a = { fg = colors.black, bg = colors.blue } },
   visual = { a = { fg = colors.black, bg = colors.yellow } },

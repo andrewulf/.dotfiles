@@ -36,6 +36,9 @@ eval "$(zoxide init zsh)"
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 
+# OCaml
+[[ ! -r /Users/prozod/.opam/opam-init/init.zsh ]] || source /Users/prozod/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 # Python
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/bin/python3
@@ -100,6 +103,11 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# gcc comp + run
+function cnr() { gcc $1 && ./a.out; }
+# gcc comp + run + debug (symbols)
+function cnrd() { gcc -g $1 && ./a.out; }
 
 # Maven
 export M2_HOME="/Users/prozod/apache-maven-3.9.5"
