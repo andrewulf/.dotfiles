@@ -45,12 +45,6 @@ export PATH=$PATH:/usr/bin/python3
 export PATH=$PATH:$HOME/Library/Python/3.8/lib/python/site-packages/
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-# TMUXIFIER
-export EDITOR="nvim"
-export PATH="$HOME/Repos/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
-alias tm="tmuxifier"
-
 #####################################
 ### ----> DIRECTORY & GIT ALIASES <---- ###
 #####################################
@@ -113,3 +107,4 @@ function cnrd() { gcc -g $1 && ./a.out; }
 export M2_HOME="/Users/prozod/apache-maven-3.9.5"
 PATH="${M2_HOME}/bin:${PATH}"
 export PATH
+source ~/powerlevel10k/powerlevel10k.zsh-theme

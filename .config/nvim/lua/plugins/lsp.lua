@@ -3,7 +3,7 @@ local lspcfg = function()
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   local on_attach = function(client, bufnr)
-    if client.server_capabilities.inlayHintProvider then
+    if client.server_capabilities.inlayHints then
       vim.lsp.inlay_hint(bufnr, true)
       vim.g.inlay_hints_visible = true
     end
@@ -14,12 +14,12 @@ local lspcfg = function()
   require('neodev').setup()
 
   local servers = {
-    asm_lsp = {},
-    java_language_server = {},
+    -- asm_lsp = {},
+    -- java_language_server = {},
     angularls = {},
-    vimtex = {},
-    ocamllsp = {},
-    python = {},
+    -- vimtex = {},
+    -- ocamllsp = {},
+    pylsp = {},
     eslint = {
       file_types = {
         "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "vue",

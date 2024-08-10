@@ -11,8 +11,8 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.font = wezterm.font 'MonaspiceNe Nerd Font'
-config.font_size = 15.0
+config.font = wezterm.font('GeistMono NF', { weight = 600, italic = false })
+config.font_size = 15
 
 
 -- hide tab  and titlebar
@@ -25,30 +25,48 @@ config.cursor_blink_rate = 400
 config.cursor_blink_ease_in = 'Constant'
 config.cursor_blink_ease_out = 'Constant'
 
-config.color_scheme = "Catppuccin Mocha"
 -- For example, changing the color scheme:
 config.force_reverse_video_cursor = true
--- config.colors = {
---   foreground = "#dcd7ba",
---   background = "#141414",
---
---   cursor_bg = "#c8c093",
---   cursor_fg = "#c8c093",
---   cursor_border = "#c8c093",
---
---   selection_fg = "#c8c093",
---   selection_bg = "#2d4f67",
---
---   scrollbar_thumb = "#16161d",
---   split = "#16161d",
---
---   ansi = { "#090618", "#c34043", "#76946a", "#c0a36e", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093" },
---   brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
---   indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
--- }
-config.window_background_image = '/Users/prozod/backgrounds/lips.png'
+-- config.color_scheme = 'Atelier Dune (base16)'
+
+config.colors = {
+  cursor_bg = "#a277ff",
+  cursor_border = "#a277ff",
+  cursor_fg = "#a277ff",
+  foreground = "#edecee",
+  selection_bg = "#29263c",
+  selection_fg = "#edecee",
+  scrollbar_thumb = '#6d6d6d',
+  background = "#141516",
+
+
+  brights = {
+    '#6d6d6d',
+    '#ff6767',
+    '#61ffca',
+    '#ffca85',
+    '#a277ff',
+    '#a277ff',
+    '#61ffca',
+    '#edecee',
+  },
+
+  ansi = {
+    "#15141b",
+    "#ff6767",
+    '#61ffca',
+    '#ffca85',
+    '#a277ff',
+    '#a277ff',
+    '#61ffca',
+    '#edecee',
+  },
+}
+
+-- BACKGROUND TRANSPARENCY AND WALLPAPER
+config.window_background_image = '/Users/prozod/backgrounds/lonegirl.png'
 config.window_background_image_hsb = {
-  brightness = 0.01,
+  brightness = 0.02,
 }
 
 --keybinds
